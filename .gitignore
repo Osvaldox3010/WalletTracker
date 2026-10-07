@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+scripts/runBackend.txt
+
+### Variables de entorno ###
+.env

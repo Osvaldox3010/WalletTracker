@@ -1,0 +1,13 @@
+# Ejecutar desde la carpeta wallet-tracker (donde esta el archivo .env)
+
+# Lee el archivo .env linea por linea
+Get-Content .env | ForEach-Object {
+    # Si la linea tiene el formato CLAVE=VALOR (y no es un comentario con #)
+    if ($_ -match '^\s*([^#=\s]+)\s*=\s*(.*)$') {
+        # Define la variable de entorno solo para esta sesion de PowerShell
+        Set-Item -Path "Env:$($matches[1])" -Value $matches[2]
+    }
+}
+
+cd backend
+.\mvnw.cmd spring-boot:run
