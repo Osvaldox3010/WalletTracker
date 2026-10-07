@@ -12,16 +12,18 @@ public class Balances {
     private Long id_balance;
 
     @Column(nullable = false, length = 20, unique = true)
-    private String source; // bank, cash, etc.
+    private String source;
 
     @Column (nullable = false, length = 40)
     private String description;
 
     @Column (nullable = false, length = 20)
-    private String currency; // USD, EUR, etc.
+    @Enumerated(EnumType.STRING)
+    private CurrencyType currency; // USD, EUR, etc.
 
     @Column (nullable = false, length = 20)
-    private Integer balance_type;
+    @Enumerated(EnumType.STRING)
+    private BalanceType balance_type;
 
     @Column (nullable = false, precision = 10, scale = 2)
     private BigDecimal balance;
@@ -33,4 +35,17 @@ public class Balances {
     @OneToMany (mappedBy = "balances")
     private List<Transaction> transactions;
 
+}
+
+enum BalanceType {
+    CASH,
+    BANK,
+    CREDIT_CARD
+}
+
+enum CurrencyType {
+    USD,
+    EUR,
+    GBP,
+    JPY
 }

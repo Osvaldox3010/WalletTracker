@@ -18,7 +18,8 @@ public class Transaction {
     private String description;
 
     @Column (nullable = false, length = 20)
-    private Integer transaction_type; // 1 for entrada, 2 for gasto
+    @Enumerated(EnumType.STRING)
+    private TransactionType transaction_type;
 
     @Column (nullable = false, precision = 10, scale = 2)
     private BigDecimal amount;
@@ -37,4 +38,9 @@ public class Transaction {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id")
     private User user;
+}
+
+enum TransactionType {
+    INCOME,
+    EXPENSE
 }
