@@ -35,6 +35,50 @@ public class Balances {
     @OneToMany (mappedBy = "balances")
     private List<Transaction> transactions;
 
+    public Long getId_balance() {
+        return id_balance;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getCurrency() {
+        return currency.name();
+    }
+
+    public String getBalance_type() {
+        return balance_type.name();
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setCurrency(CurrencyType currency) {
+        this.currency = currency;
+    }
+
+    public void setBalance_type(BalanceType balance_type) {
+        this.balance_type = balance_type;
+    }
+
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
+    }
+
 }
 
 enum BalanceType {

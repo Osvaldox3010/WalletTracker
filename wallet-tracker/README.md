@@ -28,7 +28,7 @@ backend:
 ```powershell
 $env:DB_PASSWORD = "tu_contraseña_local"
 cd backend
-mvn spring-boot:run
+.\mvnw.cmd spring-boot:run
 ```
 
 La variable solo queda definida en esa sesión de PowerShell. No guardes tu

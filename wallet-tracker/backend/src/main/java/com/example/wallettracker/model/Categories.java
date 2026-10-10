@@ -18,4 +18,32 @@ public class Categories {
     @JoinColumn(name = "user_id")
     private User user;
 
+    public Long getId() {
+        return id_category;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
 }
